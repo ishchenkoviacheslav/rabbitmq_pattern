@@ -1,0 +1,8 @@
+c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Debug\netcoreapp2.1\MyPattern_MasterClient.deps.json
+c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Debug\netcoreapp2.1\MyPattern_MasterClient.runtimeconfig.json
+c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Debug\netcoreapp2.1\MyPattern_MasterClient.runtimeconfig.dev.json
+c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Debug\netcoreapp2.1\MyPattern_MasterClient.dll
+c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.csprojAssemblyReference.cache
+c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.csproj.CoreCompileInputs.cache
+c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.AssemblyInfoInputs.cache
+c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.AssemblyInfo.cs
