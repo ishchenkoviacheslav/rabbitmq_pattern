@@ -6,19 +6,25 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Serializator;
+using System.Threading.Tasks;
+using System.Threading;
+using Sharing.DTO;
+using System.Linq;
 
 namespace MyPattern_MasterClient
 {
     class MasterClient : IDisposable
     {
         Logger logger = new Logger();
-        private List<ClientPeer> ClientsList = new List<ClientPeer>();
+        private List<ClientPeer> ClientsList = new List<ClientPeer>();//make this collection as multithead?(use another type of collection)
         public IConnection connection;
         IModel channel;
+        public CancellationTokenSource tokenSource = null;
+
         public MasterClient()
         {
             logger.Info("Server started");
-            ConnectionFactory factory = new ConnectionFactory() { UserName = "", Password = "", HostName = "" };
+            ConnectionFactory factory = new ConnectionFactory() { UserName = "client", Password = "123456", HostName = "192.168.21.130" };
             connection = factory.CreateConnection();
             channel = connection.CreateModel();
             channel.QueueDeclare(queue: "MasterClient", durable: false, exclusive: false, autoDelete: false, arguments: null);
@@ -36,44 +42,62 @@ namespace MyPattern_MasterClient
                 Object obtained = ea.Body.Deserializer();
                 switch (obtained)
                 {
-                    //case JsonClass j:
-                    //    logger.Info("JsonClass");
-                    //    JsonModel jsonModel = new JsonModel() { IP = "localhost", UserName = "user", Password = "123456" };
-                    //    string jsonString = JsonConvert.SerializeObject(jsonModel, Formatting.Indented);
-                    //    JsonClass jsonClass = new JsonClass()
-                    //    {
-                    //        JsonString = jsonString
-                    //    };
-                    //    channel.BasicPublish(exchange: "", routingKey: props.ReplyTo, basicProperties: null, body: jsonClass.Serializer());
-
-                    //    break;
-                    //case ImageClass i:
-                    //    logger.Info("ImageClass");
-                    //    ImageClass image = new ImageClass()
-                    //    {
-                    //        ImageByteArray = GetImage()
-                    //    };
-                    //    channel.BasicPublish(exchange: "", routingKey: props.ReplyTo, basicProperties: null, body: image.Serializer());
-                    //    break;
-                    //case FileClass f:
-                    //    logger.Info("FileClass");
-                    //    FileClass file = new FileClass()
-                    //    {
-                    //        FileByteArray = GetFile()
-                    //    };
-                    //    channel.BasicPublish(exchange: "", routingKey: props.ReplyTo, basicProperties: null, body: file.Serializer());
-                    //    break;
+                    case PingPeer p:
+                        ClientPeer peer = ClientsList.FirstOrDefault((pr) => pr.QeueuName == props.ReplyTo);
+                        if (peer != null)
+                        {
+                            peer.LastUpTime = DateTime.UtcNow;
+                        }
+                        break;
                     default:
                         logger.Error("Type is different!");
                         break;
                 }//switch
             };
+            tokenSource = new CancellationTokenSource();
+            PingToAll();
         }//ctor
         public void Dispose()
         {
+            tokenSource.Cancel();
             channel.Close();
             connection.Close();
             logger.Info("Server stoped");
+        }
+
+        public void PingToAll()
+        {
+            Task.Run(() =>
+            {
+                logger.Info("Ping process started...");
+                while (true)
+                {
+                    //need do that. If server will be close, must kill that thread
+                    if (tokenSource.Token.IsCancellationRequested)
+                    {
+                        logger.Info("Cancellation token work!!!!!!!!!!!!!!!!!!!!!!!");
+                        tokenSource.Token.ThrowIfCancellationRequested();
+                    }
+
+                    //auto delete client after 5 second
+                    ClientsList.RemoveAll((c) =>
+                    {
+
+                        if (DateTime.UtcNow.Subtract(c.LastUpTime) > new TimeSpan(0, 0, 5))
+                        {
+                            logger.Info("Client was deleted");
+                            return true;
+                        }
+                        return false;
+                    });
+                    foreach (ClientPeer c in ClientsList)
+                    {
+                        channel.BasicPublish(exchange: "", routingKey: c.QeueuName, basicProperties: null, body: new PingPeer().Serializer());
+                    }
+
+                    Thread.Sleep(1000);
+                }
+            }, tokenSource.Token);
         }
     }
 }

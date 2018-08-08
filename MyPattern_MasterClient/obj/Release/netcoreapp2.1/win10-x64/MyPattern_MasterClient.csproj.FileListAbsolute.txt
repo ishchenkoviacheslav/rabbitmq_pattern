@@ -1,0 +1,17 @@
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Release\netcoreapp2.1\win10-x64\hostpolicy.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Release\netcoreapp2.1\win10-x64\hostfxr.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.exe
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.deps.json
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.runtimeconfig.json
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.runtimeconfig.dev.json
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.pdb
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Release\netcoreapp2.1\win10-x64\Sharing.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Release\netcoreapp2.1\win10-x64\Sharing.pdb
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.csprojAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.AssemblyInfoInputs.cache
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.AssemblyInfo.cs
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.csproj.CopyComplete
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Release\netcoreapp2.1\win10-x64\MyPattern_MasterClient.pdb

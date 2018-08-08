@@ -26,7 +26,8 @@ namespace MyLogger
         {
             lock (obj)
             {
-                using (StreamWriter writer = new StreamWriter(@"/home/" + "RabitMQ_MasterClientlog.txt", true))
+                //using (StreamWriter writer = new StreamWriter(@"/home/" + "RabitMQ_MasterClientlog.txt", true))
+                using (StreamWriter writer = new StreamWriter(Environment.CurrentDirectory + "RabitMQ_MasterClientlog.txt", true))
                 {
                     writer.WriteLine(String.Format($"{DateTime.UtcNow.ToString("dd/MM/yyyy hh:mm:ss")} : [{fileEvent}] - {EventData}"));
                     writer.Flush();
