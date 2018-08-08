@@ -15,7 +15,6 @@ namespace MyPattern_MasterClient
 {
     class MasterClient : IDisposable
     {
-        Logger logger = new Logger();
         private List<ClientPeer> ClientsList = new List<ClientPeer>();//make this collection as multithead?(use another type of collection)
         public IConnection connection;
         IModel channel;
@@ -23,7 +22,7 @@ namespace MyPattern_MasterClient
 
         public MasterClient()
         {
-            logger.Info("Server started");
+            Logger.Info("Server started");
             ConnectionFactory factory = new ConnectionFactory() { UserName = "client", Password = "123456", HostName = "192.168.21.130" };
             connection = factory.CreateConnection();
             channel = connection.CreateModel();
@@ -37,7 +36,7 @@ namespace MyPattern_MasterClient
                 if (!ClientsList.Exists((c) => c.QeueuName == props.ReplyTo))
                 {
                     ClientsList.Add(new ClientPeer() { QeueuName = props.ReplyTo, LastUpTime = DateTime.UtcNow });
-                    logger.Info($"Was added a client: {props.ReplyTo}");
+                    Logger.Info($"Was added a client: {props.ReplyTo}");
                 }
                 Object obtained = ea.Body.Deserializer();
                 switch (obtained)
@@ -50,7 +49,7 @@ namespace MyPattern_MasterClient
                         }
                         break;
                     default:
-                        logger.Error("Type is different!");
+                        Logger.Error("Type is different!");
                         break;
                 }//switch
             };
@@ -62,20 +61,20 @@ namespace MyPattern_MasterClient
             tokenSource.Cancel();
             channel.Close();
             connection.Close();
-            logger.Info("Server stoped");
+            Logger.Info("Server stoped");
         }
 
         public void PingToAll()
         {
             Task.Run(() =>
             {
-                logger.Info("Ping process started...");
+                Logger.Info("Ping process started...");
                 while (true)
                 {
                     //need do that. If server will be close, must kill that thread
                     if (tokenSource.Token.IsCancellationRequested)
                     {
-                        logger.Info("Cancellation token work!!!!!!!!!!!!!!!!!!!!!!!");
+                        Logger.Info("Cancellation token work!!!!!!!!!!!!!!!!!!!!!!!");
                         tokenSource.Token.ThrowIfCancellationRequested();
                     }
 
@@ -85,7 +84,7 @@ namespace MyPattern_MasterClient
 
                         if (DateTime.UtcNow.Subtract(c.LastUpTime) > new TimeSpan(0, 0, 5))
                         {
-                            logger.Info("Client was deleted");
+                            Logger.Info("Client was deleted");
                             return true;
                         }
                         return false;

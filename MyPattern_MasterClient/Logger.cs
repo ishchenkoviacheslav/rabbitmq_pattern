@@ -9,20 +9,17 @@ namespace MyLogger
 {
     class Logger
     {
-        object obj = new object();
-        public Logger()
-        {
-           
-        }
-        public void Info(string message)
+        static object obj = new object();
+      
+        public static void Info(string message)
         {
             RecordEntry("INFO", message);
         }
-        public void Error(string message)
+        public static void Error(string message)
         {
             RecordEntry("ERROR", message);
         }
-        private void RecordEntry(string fileEvent, string EventData)
+        private static void RecordEntry(string fileEvent, string EventData)
         {
             lock (obj)
             {
