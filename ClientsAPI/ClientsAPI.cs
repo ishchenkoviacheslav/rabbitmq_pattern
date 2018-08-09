@@ -10,6 +10,26 @@ namespace ClientsAPI
 {
     public class ClientsAPI : IDisposable
     {
+        public event Action<string> BackError;
+        /// <summary>
+        /// Error's message in paremeter
+        /// </summary>
+        public event Action<string> RegistrationError;
+        /// <summary>
+        /// after register you should to call login function!
+        /// </summary>
+        public event Action<string> RegistrationResponse;
+        /// <summary>
+        /// sessionId in parameter
+        /// </summary>
+        public event Action<string> LoginResponse;
+        /// <summary>
+        /// Can be login or password incorrect
+        /// </summary>
+        public event Action<string> LoginError;
+
+
+
         private IConnection connection;
         private IModel channel;
         private readonly string replyQueueName;
@@ -39,24 +59,63 @@ namespace ClientsAPI
                         PingPeer ping = new PingPeer();
                         channel.BasicPublish(exchange: "", routingKey: "MasterClient", basicProperties: props, body: ping.Serializer());
                         break;
-                  
+                    case RegistrationResponse r:
+                        RegistrationResponse("after register you should to call login function");
+                        break;
+                    case LoginResponse lr:
+                        LoginResponse(lr.SessionId);
+                        break;
+                    case BackError er:
+                        BackErrorHandler(er);
+                        break;
                     default:
                         throw new Exception("Type if different! Server sent unknown type!");
                 }
             };
             FirstPing();
         }
-        
+
+        private void BackErrorHandler(BackError er)
+        {
+            switch (er)
+            {
+                case RegistrationError re:
+                    RegistrationError(er.ErrorDescription);
+                    break;
+                case LoginError le:
+                    LoginError(le.ErrorDescription);
+                    break;
+                case BackError be:
+                    BackError(be.ErrorDescription);
+                    break;
+                
+                default:
+                    throw new Exception($"Unknown error type!");
+                    break;
+            }
+        }
+
         public void Dispose()
         {
             connection.Close();
         }
         //need only for test or just for first ping(in production first connect will by some another reason)
-        public void FirstPing()
+        private void FirstPing()
         {
             PingPeer ping = new PingPeer();
             channel.BasicPublish(exchange: "", routingKey: "MasterClient", basicProperties: props, body: ping.Serializer());
         }
-
+        /// <summary>
+        /// Can be exception(internal validation for Email expression)
+        /// </summary>
+        /// <param name="userData"></param>
+        public void Register(RegistrationRequest userData)
+        {
+            channel.BasicPublish(exchange: "", routingKey: "MasterClient", basicProperties: props, body: userData.Serializer());
+        }
+        public void Login(LoginRequest logRequest)
+        {
+            channel.BasicPublish(exchange: "", routingKey: "MasterClient", basicProperties: props, body: logRequest.Serializer());
+        }
     }
 }

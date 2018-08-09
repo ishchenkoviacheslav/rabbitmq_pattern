@@ -8,9 +8,9 @@ using System.Text;
 
 namespace MyPattern_MasterClient.Repositories
 {
-    class UserRepository
+    static class UserRepository
     {
-        public void AddUser(User user)
+        public static void AddUser(User user)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
@@ -19,7 +19,7 @@ namespace MyPattern_MasterClient.Repositories
             }
         }
 
-        public void DeleteUser(User user)
+        public static void DeleteUser(User user)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
@@ -45,22 +45,40 @@ namespace MyPattern_MasterClient.Repositories
         //    }
         //}
         //what can be changed in "User"?
-        public void EditUser(User user)
+        public static void SetUserSession(int userId, Guid session)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                User findedUser = db.Users.FirstOrDefault((u) => u.Id == user.Id);
-
-                db.SaveChanges();
+                User findedUser = db.Users.FirstOrDefault((u) => u.Id == userId);
+                findedUser.SessionId = session;
+                db.SaveChangesAsync();
             }
         }
         //can be null !!!
-        public User GetUserById(int userId)
+        public static User GetUserById(int userId)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
                 return db.Users.FirstOrDefault((u) => u.Id == userId);
             }
+        }
+
+        public static User GetUserByEmail(string email)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                return db.Users.FirstOrDefault((u) => u.Email == email);
+            }
+        }
+
+        public static bool IsExistEmail(string email)
+        {
+            bool isExist = false;
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                isExist = db.Users.FirstOrDefault((u) => u.Email == email) == null ? false : true;
+            }
+            return isExist;
         }
 
         private static void AllExceptions(Exception ex)
