@@ -11,7 +11,7 @@ namespace MyPattern_MasterClient.Entities
         public string Email { get; set; }
         public string Salt { get; set; }
         public string Password { get; set; }
-        public Guid SessionId { get; set; }
         public string QueueName { get; set; }
+        public Session Session { get; set; }// just navigation properties
     }
 }

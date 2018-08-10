@@ -44,16 +44,7 @@ namespace MyPattern_MasterClient.Repositories
         //        db.SaveChanges();
         //    }
         //}
-        //what can be changed in "User"?
-        public static void SetUserSession(int userId, Guid session)
-        {
-            using (ApplicationContext db = new ApplicationContext())
-            {
-                User findedUser = db.Users.FirstOrDefault((u) => u.Id == userId);
-                findedUser.SessionId = session;
-                db.SaveChangesAsync();
-            }
-        }
+       
         //can be null !!!
         public static User GetUserById(int userId)
         {

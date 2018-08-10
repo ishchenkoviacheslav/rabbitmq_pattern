@@ -63,6 +63,12 @@ namespace MyPattern_MasterClient
                     case LoginRequest lr:
                         Login(lr, props.ReplyTo);
                         break;
+                    case LogoutRequest loutr:
+                        Logout(loutr.SessionId, props.ReplyTo);
+                        break;
+                    case LoginBySessionRequest lbsr:
+                        LoginBySession(lbsr.Session, props.ReplyTo);
+                        break;
                     default:
                         Logger.Error("Type is different!");
                         break;
@@ -72,6 +78,28 @@ namespace MyPattern_MasterClient
             PingToAll();
         }//ctor
 
+        private void LoginBySession(string session, string replyTo)
+        {
+            to do here
+        }
+
+        private void Logout(string sessionId, string queueName)
+        {
+            Guid session;
+            try
+            {
+                session = Guid.Parse(sessionId);
+                SessionRepository.DeleteUserSession(session);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Client sent bad guid to server" + ex.Message);
+            }
+            LogoutResponse loutResp = new LogoutResponse();
+            channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: loutResp.Serializer());
+        }
+
+        //set new session to db
         private void Login(LoginRequest lr, string queueName)
         {
             if (string.IsNullOrEmpty(lr.Email) || string.IsNullOrEmpty(lr.Password))
@@ -92,7 +120,7 @@ namespace MyPattern_MasterClient
                 if (UserRepository.HashCode(lr.Password+user.Salt) == user.Password)
                 {
                     Guid NewSessionId = Guid.NewGuid();
-                    UserRepository.SetUserSession(user.Id, NewSessionId);
+                    SessionRepository.SetUserSession(user.Id, NewSessionId);
                     LoginResponse logResponse = new LoginResponse() {SessionId = NewSessionId.ToString() };
                     channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: logResponse.Serializer());
                     return;

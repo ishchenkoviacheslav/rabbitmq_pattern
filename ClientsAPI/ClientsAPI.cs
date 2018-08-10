@@ -27,6 +27,18 @@ namespace ClientsAPI
         /// Can be login or password incorrect
         /// </summary>
         public event Action<string> LoginError;
+        /// <summary>
+        /// report success
+        /// </summary>
+        public event Action LogoutResponse;
+        /// <summary>
+        /// report success
+        /// </summary>
+        public event Action LoginBySessionResponse;
+        /// <summary>
+        /// Can be session incorrect
+        /// </summary>
+        public event Action<string> LoginBySessionError;
 
 
 
@@ -65,6 +77,12 @@ namespace ClientsAPI
                     case LoginResponse lr:
                         LoginResponse(lr.SessionId);
                         break;
+                    case LogoutResponse lr:
+                        LogoutResponse();
+                        break;
+                    case LoginBySessionResponse lbsr:
+                        LoginBySessionResponse();
+                        break;
                     case BackError er:
                         BackErrorHandler(er);
                         break;
@@ -85,10 +103,12 @@ namespace ClientsAPI
                 case LoginError le:
                     LoginError(le.ErrorDescription);
                     break;
+                case LoginBySessionError lbse:
+                    LoginBySessionError(lbse.ErrorDescription);
+                    break;
                 case BackError be:
                     BackError(be.ErrorDescription);
                     break;
-                
                 default:
                     throw new Exception($"Unknown error type!");
                     break;
@@ -116,6 +136,16 @@ namespace ClientsAPI
         public void Login(LoginRequest logRequest)
         {
             channel.BasicPublish(exchange: "", routingKey: "MasterClient", basicProperties: props, body: logRequest.Serializer());
+        }
+
+        public void LoginBySession(LoginBySessionRequest logBySessionRequest)
+        {
+            channel.BasicPublish(exchange: "", routingKey: "MasterClient", basicProperties: props, body: logBySessionRequest.Serializer());
+        }
+
+        public void Logout(LogoutRequest logoutRequest)
+        {
+            channel.BasicPublish(exchange: "", routingKey: "MasterClient", basicProperties: props, body: logoutRequest.Serializer());
         }
     }
 }

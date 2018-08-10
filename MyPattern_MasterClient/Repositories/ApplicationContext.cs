@@ -8,6 +8,7 @@ namespace MyPattern_MasterClient.Repositories
     class ApplicationContext: DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Session> Sessions { get; set; }
         public ApplicationContext()
         {
             Database.EnsureCreated();
@@ -22,9 +23,9 @@ namespace MyPattern_MasterClient.Repositories
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasIndex(u => u.Email).IsUnique();
-            modelBuilder.Entity<User>().HasIndex(u => u.SessionId).IsUnique();
             modelBuilder.Entity<User>().HasIndex(u => u.QueueName).IsUnique();
             modelBuilder.Entity<User>().HasIndex(u => u.Salt).IsUnique();
+            modelBuilder.Entity<Session>().HasKey(s => s.SessionId); // primary key
         }
 
     }
