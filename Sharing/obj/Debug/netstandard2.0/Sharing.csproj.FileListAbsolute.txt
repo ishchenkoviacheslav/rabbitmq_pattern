@@ -1,9 +1,12 @@
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\bin\Debug\netstandard2.0\Sharing.deps.json
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\bin\Debug\netstandard2.0\Sharing.dll
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\bin\Debug\netstandard2.0\Sharing.pdb
-c:\users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.csprojAssemblyReference.cache
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.csproj.CoreCompileInputs.cache
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.AssemblyInfoInputs.cache
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.AssemblyInfo.cs
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.dll
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.pdb
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\Sharing\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\Sharing\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.csproj.CopyComplete

@@ -1,4 +1,3 @@
-C:\Users\user\documents\visual studio 2017\Projects\MyPattern\Client_WinForms\obj\Debug\Client_WinForms.csprojAssemblyReference.cache
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\Client_WinForms\obj\Debug\Client_WinForms.Form1.resources
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\Client_WinForms\obj\Debug\Client_WinForms.Properties.Resources.resources
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\Client_WinForms\obj\Debug\Client_WinForms.csproj.GenerateResource.cache
@@ -17,3 +16,6 @@ C:\Users\user\documents\visual studio 2017\Projects\MyPattern\Client_WinForms\bi
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\Client_WinForms\bin\Debug\RabbitMQ.Client.dll
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\Client_WinForms\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.xml
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\Client_WinForms\bin\Debug\RabbitMQ.Client.xml
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\Client_WinForms\obj\Debug\Client_WinForms.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\Client_WinForms\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\Client_WinForms\bin\Debug\System.ComponentModel.Annotations.xml

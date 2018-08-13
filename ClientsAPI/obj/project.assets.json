@@ -3710,11 +3710,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\user\\documents\\visual studio 2017\\Projects\\MyPattern\\ClientsAPI\\ClientsAPI.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\Visual Studio 2017\\Projects\\MyPattern\\ClientsAPI\\ClientsAPI.csproj",
       "projectName": "ClientsAPI",
-      "projectPath": "c:\\users\\user\\documents\\visual studio 2017\\Projects\\MyPattern\\ClientsAPI\\ClientsAPI.csproj",
+      "projectPath": "C:\\Users\\user\\Documents\\Visual Studio 2017\\Projects\\MyPattern\\ClientsAPI\\ClientsAPI.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "c:\\users\\user\\documents\\visual studio 2017\\Projects\\MyPattern\\ClientsAPI\\obj\\",
+      "outputPath": "C:\\Users\\user\\Documents\\Visual Studio 2017\\Projects\\MyPattern\\ClientsAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

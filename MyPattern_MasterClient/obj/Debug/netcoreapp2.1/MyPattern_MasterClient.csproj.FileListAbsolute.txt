@@ -2,7 +2,6 @@ c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterCl
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Debug\netcoreapp2.1\MyPattern_MasterClient.runtimeconfig.json
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Debug\netcoreapp2.1\MyPattern_MasterClient.runtimeconfig.dev.json
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\bin\Debug\netcoreapp2.1\MyPattern_MasterClient.dll
-c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.csprojAssemblyReference.cache
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.csproj.CoreCompileInputs.cache
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.AssemblyInfoInputs.cache
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.AssemblyInfo.cs
@@ -12,3 +11,4 @@ C:\Users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterCl
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.csproj.CopyComplete
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.dll
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.pdb
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\MyPattern_MasterClient\obj\Debug\netcoreapp2.1\MyPattern_MasterClient.csprojResolveAssemblyReference.cache

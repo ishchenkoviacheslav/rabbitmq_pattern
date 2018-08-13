@@ -33,5 +33,13 @@ namespace MyPattern_MasterClient.Repositories
             }
         }
 
+        public static User GetUserBySession(Guid session)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                return db.Sessions.FirstOrDefault(s => s.SessionId == session)?.User;//use navigate properties
+            }
+        }
+
     }
 }

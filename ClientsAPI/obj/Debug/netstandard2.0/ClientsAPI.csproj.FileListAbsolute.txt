@@ -1,6 +1,5 @@
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\ClientsAPI\bin\Debug\netstandard2.0\ClientsAPI.deps.json
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\ClientsAPI\bin\Debug\netstandard2.0\ClientsAPI.dll
-c:\users\user\documents\visual studio 2017\Projects\MyPattern\ClientsAPI\obj\Debug\netstandard2.0\ClientsAPI.csprojAssemblyReference.cache
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\ClientsAPI\obj\Debug\netstandard2.0\ClientsAPI.csproj.CoreCompileInputs.cache
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\ClientsAPI\obj\Debug\netstandard2.0\ClientsAPI.AssemblyInfoInputs.cache
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\ClientsAPI\obj\Debug\netstandard2.0\ClientsAPI.AssemblyInfo.cs
@@ -10,3 +9,6 @@ C:\Users\user\documents\visual studio 2017\Projects\MyPattern\ClientsAPI\bin\Deb
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\ClientsAPI\obj\Debug\netstandard2.0\ClientsAPI.csproj.CopyComplete
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\ClientsAPI\obj\Debug\netstandard2.0\ClientsAPI.dll
 C:\Users\user\documents\visual studio 2017\Projects\MyPattern\ClientsAPI\obj\Debug\netstandard2.0\ClientsAPI.pdb
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\ClientsAPI\obj\Debug\netstandard2.0\ClientsAPI.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\ClientsAPI\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\ClientsAPI\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml

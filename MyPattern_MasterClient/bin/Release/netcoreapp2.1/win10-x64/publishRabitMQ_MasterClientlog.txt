@@ -1,18 +1,6 @@
-07/08/2018 01:01:53 : [INFO] - Server started
-07/08/2018 01:06:56 : [INFO] - Server started
-08/08/2018 09:44:34 : [INFO] - Server started
-08/08/2018 09:44:35 : [INFO] - Ping process started...
-08/08/2018 11:15:59 : [INFO] - Was added a client: amq.gen-m97yfPcu8H8Osgui5K2rpA
-08/08/2018 11:19:34 : [INFO] - Server started
-08/08/2018 11:19:35 : [INFO] - Ping process started...
-08/08/2018 11:22:17 : [INFO] - Was added a client: amq.gen-ArADB5TAiUUCud8jzl_wGg
-08/08/2018 11:26:04 : [INFO] - Was added a client: amq.gen-WAtHCHWbwLRe2j73pXoOPg
-08/08/2018 11:26:54 : [INFO] - Was added a client: amq.gen-G9uCVVASwTCnmi7Wbhx9vw
-08/08/2018 11:31:28 : [INFO] - Was added a client: amq.gen-xm1BZHKWNpIU1c58J8VTEA
-08/08/2018 11:34:10 : [INFO] - Server started
-08/08/2018 11:34:10 : [INFO] - Ping process started...
-08/08/2018 11:34:47 : [INFO] - Was added a client: amq.gen-fcsoy1hKZQn9AdGc233KSQ
-08/08/2018 11:35:12 : [INFO] - Was added a client: amq.gen-KjXmtQsZePHR9Qe4BkM5kQ
-08/08/2018 11:35:54 : [INFO] - Server started
-08/08/2018 11:35:54 : [INFO] - Ping process started...
-08/08/2018 11:36:10 : [INFO] - Was added a client: amq.gen--geJdAd3_HWT9Q4eyx1Ztg
+13/08/2018 12:14:20 : [INFO] - Server started
+13/08/2018 12:14:22 : [INFO] - Ping process started...
+13/08/2018 12:31:16 : [INFO] - Server started
+13/08/2018 12:31:17 : [INFO] - Ping process started...
+13/08/2018 12:31:47 : [INFO] - Was added a client: amq.gen-pcgE1cRSbMq_q9k9RkViow
+13/08/2018 01:40:01 : [INFO] - Client was deleted

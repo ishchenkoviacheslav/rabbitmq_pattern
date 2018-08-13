@@ -80,7 +80,31 @@ namespace MyPattern_MasterClient
 
         private void LoginBySession(string session, string replyTo)
         {
-            to do here
+            Guid sessionGuid = Guid.Empty;
+            try
+            {
+                sessionGuid = new Guid(session);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"{nameof(LoginBySession)}: Session id is incorrect!");
+                LoginBySessionError logBySession = new LoginBySessionError("Session is incorrect!");
+                channel.BasicPublish(exchange: "", routingKey: replyTo, basicProperties: null, body: logBySession.Serializer());
+                return;
+            }
+            User user = SessionRepository.GetUserBySession(sessionGuid);
+            if(user == null)
+            {
+                Logger.Error($"{nameof(LoginBySession)}: Session not found!");
+                LoginBySessionError logBySession = new LoginBySessionError("Session not found!");
+                channel.BasicPublish(exchange: "", routingKey: replyTo, basicProperties: null, body: logBySession.Serializer());
+            }
+            else
+            {
+                Logger.Info($"User id: {user.Id}, name: {user.Email} - logged by session: {sessionGuid.ToString()}");
+                LoginBySessionResponse logBySessionResp = new LoginBySessionResponse();
+                channel.BasicPublish(exchange: "", routingKey: replyTo, basicProperties: null, body: logBySessionResp.Serializer());
+            }
         }
 
         private void Logout(string sessionId, string queueName)
