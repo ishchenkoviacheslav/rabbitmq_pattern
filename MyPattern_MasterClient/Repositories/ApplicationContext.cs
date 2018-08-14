@@ -16,15 +16,16 @@ namespace MyPattern_MasterClient.Repositories
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL($"server={MasterClient.ConfigurationData.DbServerDomenOrIP};database={MasterClient.ConfigurationData.DbName};user={MasterClient.ConfigurationData.DbUserName};password={MasterClient.ConfigurationData.DbUserPassword};SslMode=none");
-            //optionsBuilder.UseMySQL("server=localhost;database=patterndb;user=root;password=;SslMode=none");//
-            //optionsBuilder.UseSqlServer(@"Server=(localdb)\\ubuntu;Database=;Trusted_Connection=True;")
+            //optionsBuilder.UseMySQL("server=localhost;database=patterndb;user=root;password=root;SslMode=none");//
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\\ubuntu;Database=;Trusted_Connection=True;")//MS SQL
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasIndex(u => u.Email).IsUnique();
-            modelBuilder.Entity<User>().HasIndex(u => u.QueueName).IsUnique();
+            modelBuilder.Entity<User>().HasIndex(u => u.QueueName).IsUnique();//not unique in db. Why?!
             modelBuilder.Entity<User>().HasIndex(u => u.Salt).IsUnique();
+            modelBuilder.Entity<Session>().HasIndex(s=> s.UserId).IsUnique();
             modelBuilder.Entity<Session>().HasKey(s => s.SessionId); // primary key
         }
 

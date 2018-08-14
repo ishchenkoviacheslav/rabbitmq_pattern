@@ -8,5 +8,5 @@ c:\users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\obj\Debug\
 c:\users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.pdb
 C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\Sharing\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
 C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\Sharing\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
-C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.csprojResolveAssemblyReference.cache
 C:\Users\user\Documents\Visual Studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.csproj.CopyComplete
+C:\Users\user\documents\visual studio 2017\Projects\MyPattern\Sharing\obj\Debug\netstandard2.0\Sharing.csprojAssemblyReference.cache

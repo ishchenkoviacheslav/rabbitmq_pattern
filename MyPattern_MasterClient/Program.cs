@@ -16,6 +16,7 @@ namespace MyPattern_MasterClient
                     Console.WriteLine("service master client rabbitmq working...");
                 }
             }
+            MyLogger.Logger.Info("Server stoped");
         }
     }
 }

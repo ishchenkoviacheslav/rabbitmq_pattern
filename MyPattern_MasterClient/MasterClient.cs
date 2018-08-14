@@ -80,18 +80,18 @@ namespace MyPattern_MasterClient
 
         private void LoginBySession(string session, string replyTo)
         {
-            Guid sessionGuid = Guid.Empty;
-            try
-            {
-                sessionGuid = new Guid(session);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error($"{nameof(LoginBySession)}: Session id is incorrect!");
-                LoginBySessionError logBySession = new LoginBySessionError("Session is incorrect!");
-                channel.BasicPublish(exchange: "", routingKey: replyTo, basicProperties: null, body: logBySession.Serializer());
-                return;
-            }
+            string sessionGuid = session;
+            //try
+            //{
+            //    sessionGuid = new Guid(session);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Logger.Error($"{nameof(LoginBySession)}: Session id is incorrect!");
+            //    LoginBySessionError logBySession = new LoginBySessionError("Session is incorrect!");
+            //    channel.BasicPublish(exchange: "", routingKey: replyTo, basicProperties: null, body: logBySession.Serializer());
+            //    return;
+            //}
             User user = SessionRepository.GetUserBySession(sessionGuid);
             if(user == null)
             {
@@ -109,16 +109,17 @@ namespace MyPattern_MasterClient
 
         private void Logout(string sessionId, string queueName)
         {
-            Guid session;
-            try
-            {
-                session = Guid.Parse(sessionId);
-                SessionRepository.DeleteUserSession(session);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error("Client sent bad guid to server" + ex.Message);
-            }
+            SessionRepository.DeleteUserSession(sessionId);
+
+            //Guid session;
+            //try
+            //{
+            //    session = Guid.Parse(sessionId);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Logger.Error("Client sent bad guid to server" + ex.Message);
+            //}
             LogoutResponse loutResp = new LogoutResponse();
             channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: loutResp.Serializer());
         }
@@ -135,7 +136,7 @@ namespace MyPattern_MasterClient
             User user = UserRepository.GetUserByEmail(lr.Email);
             if (user == null)
             {
-                LoginError regError = new LoginError("Incorrect login or password!");//incorrect login
+                LoginError regError = new LoginError("Incorrect login or password!l");//incorrect login
                 channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: regError.Serializer());
                 return;
             }
@@ -143,15 +144,15 @@ namespace MyPattern_MasterClient
             {
                 if (UserRepository.HashCode(lr.Password+user.Salt) == user.Password)
                 {
-                    Guid NewSessionId = Guid.NewGuid();
+                    string NewSessionId = Guid.NewGuid().ToString();
                     SessionRepository.SetUserSession(user.Id, NewSessionId);
-                    LoginResponse logResponse = new LoginResponse() {SessionId = NewSessionId.ToString() };
+                    LoginResponse logResponse = new LoginResponse(NewSessionId);
                     channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: logResponse.Serializer());
                     return;
                 }
                 else
                 {
-                    LoginError regError = new LoginError("Incorrect login or password!");//incorrect password
+                    LoginError regError = new LoginError("Incorrect login or password!p");//incorrect password
                     channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: regError.Serializer());
                     return;
                 }
@@ -162,6 +163,7 @@ namespace MyPattern_MasterClient
         {
             if (string.IsNullOrEmpty(r.Email) || string.IsNullOrEmpty(r.Password))
             {
+                Logger.Error($"{nameof(RegisterUser)}: Email or password is empty!");
                 BackError error = new BackError("Email or password is empty!");
                 channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: error.Serializer());
                 return;
@@ -169,6 +171,7 @@ namespace MyPattern_MasterClient
 
             if (UserRepository.IsExistEmail(r.Email))
             {
+                Logger.Error($"{nameof(RegisterUser)}: Email address is already used!");
                 RegistrationError regError = new RegistrationError("Email address is already used!");
                 channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: regError.Serializer());
             }
@@ -180,6 +183,8 @@ namespace MyPattern_MasterClient
                 Salt = key.ToString(),
                 Password = UserRepository.HashCode(r.Password + key)
             };
+            UserRepository.AddUser(newUser);
+            Logger.Info($"{nameof(RegisterUser)}: new client has been registered");
             RegistrationResponse regResponse = new RegistrationResponse();
             channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: regResponse.Serializer());
         }

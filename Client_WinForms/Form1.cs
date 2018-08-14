@@ -19,6 +19,61 @@ namespace Client_WinForms
         {
             InitializeComponent();
             api = new ClientsAPI.ClientsAPI();
+            emailTextBox.Text = "mymail@gmail.com";
+            passTextBox.Text = "123asdf";
+            api.BackError += Api_BackError;
+            api.LoginBySessionError += Api_LoginBySessionError;
+            api.LoginBySessionResponse += Api_LoginBySessionResponse;
+            api.LoginError += Api_LoginError;
+            api.LoginResponse += Api_LoginResponse;
+            api.LogoutResponse += Api_LogoutResponse;
+            api.RegistrationError += Api_RegistrationError;
+            api.RegistrationResponse += Api_RegistrationResponse;
+        }
+
+        private void Api_RegistrationResponse(string obj)
+        {
+            MessageBox.Show(obj);
+
+        }
+
+        private void Api_RegistrationError(string obj)
+        {
+            MessageBox.Show(obj);
+
+        }
+
+        private void Api_LogoutResponse()
+        {
+            MessageBox.Show("LogoutResponse w/o data");
+
+        }
+
+        private void Api_LoginResponse(string obj)
+        {
+            MessageBox.Show(obj);
+
+        }
+
+        private void Api_LoginError(string obj)
+        {
+            MessageBox.Show(obj);
+
+        }
+
+        private void Api_LoginBySessionResponse()
+        {
+            MessageBox.Show("LoginBySessionResponse w/o data");
+        }
+
+        private void Api_LoginBySessionError(string obj)
+        {
+            MessageBox.Show(obj);
+        }
+
+        private void Api_BackError(string obj)
+        {
+            MessageBox.Show(obj);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -71,6 +126,16 @@ namespace Client_WinForms
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             api.Dispose();
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            api.Register(new RegistrationRequest(emailTextBox.Text, passTextBox.Text));
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            api.Login(new LoginRequest(emailTextBox.Text,passTextBox.Text));
         }
     }
 }
